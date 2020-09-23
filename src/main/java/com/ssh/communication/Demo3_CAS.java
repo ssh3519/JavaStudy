@@ -1,8 +1,8 @@
 package com.ssh.communication;
 
 public class Demo3_CAS {
-    static volatile int t = 1;
-    static volatile int i = 0;
+    static  int t = 1;
+    static  int i = 0;
 
     public static void main(String[] args) {
         new Thread(() -> {

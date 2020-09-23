@@ -3,7 +3,7 @@ package com.ssh.communication;
 import java.util.concurrent.locks.LockSupport;
 
 public class Demo2_LockSupport {
-    static volatile int i = 0;
+    static int i = 0;
     static Thread t1,t2,t3;
     public static void main(String[] args) {
         t1 = new Thread(() -> {

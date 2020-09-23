@@ -6,6 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class ShareResource {
     private int number = 1;
+
     private Lock lock = new ReentrantLock();
     private Condition condition1 = lock.newCondition();
     private Condition condition2 = lock.newCondition();

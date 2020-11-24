@@ -19,31 +19,33 @@ import java.util.stream.Collectors;
  */
 public class OptionalDemo {
     public static void main(String[] args) {
-/*        String str = "null";
-        //String s = Optional.ofNullable(str).orElse("aaa");
-        String s = Optional.ofNullable(str).orElseGet(() -> "bbb");
+        String str = "ccc";
+        String s = Optional.ofNullable(str).orElse("aaa");
+        //String s = Optional.ofNullable(str).orElseGet(() -> "bbb");
         System.out.println(s);
 
         //=========================Collectors.toMap=========================================================
-        List<Pair<String, Double>> pairArrayList = new ArrayList<>(3);
+/*        List<Pair<String, Double>> pairArrayList = new ArrayList<>(3);
         pairArrayList.add(new Pair<>("version", 12.10));
         pairArrayList.add(new Pair<>("version", 12.19));
         pairArrayList.add(new Pair<>("version", 6.28));
         Map<String, Double> map = pairArrayList.stream()
                 .collect(Collectors.toMap(Pair::getKey,Pair::getValue,(v1, v2) -> v1));
         System.out.println(map);
-        map.forEach((k,v) -> System.out.println(k+":"+v));
+        map.forEach((k,v) -> System.out.println(k+":"+v));*/
         //====================================================================================================
+/*
         LongAdder longAdder = new LongAdder();
         longAdder.increment();
         System.out.println(longAdder.toString());
 
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy年MM月dd日"));
-        System.out.println(date);*/
+        System.out.println(date);
+*/
 
-        CompletableFuture<String> cf = CompletableFuture.completedFuture(null);
-        String now = cf.getNow(null);
-        System.out.println(now);
+        //CompletableFuture<String> cf = CompletableFuture.completedFuture(null);
+        //String now = cf.getNow(null);
+        //System.out.println(now);
 
     }
 }

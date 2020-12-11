@@ -1,5 +1,6 @@
 package com.ssh.util;
 
+import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.NumberUtil;
 
 import java.math.BigDecimal;
@@ -24,27 +25,68 @@ public class DateUtil {
         //System.out.println(d);
         //System.out.println(d >= 5.5000000005);
         //System.out.println(date1.substring(0,10));
-        LocalTime localTime = LocalTime.parse("23:08", DateTimeFormatter.ofPattern("HH:mm"));
-        LocalTime now = localTime.plusHours(1);
-        System.out.println(now.toString());
+
+        //LocalTime localTime = LocalTime.parse("23:08", DateTimeFormatter.ofPattern("HH:mm"));
+        //LocalTime now = localTime.plusHours(1);
+        //System.out.println(now.toString());
+
+        //String s = String.valueOf(cn.hutool.core.date.DateUtil.month(cn.hutool.core.date.DateUtil.parse("2020-02-22")));
+        //System.out.println(s);
+
+        //for (int i = 1, j = 1; i < 12; i++, j++) {
+        //    String s = cn.hutool.core.date.DateUtil.formatDate((cn.hutool.core.date.DateUtil.offsetMonth(cn.hutool.core.date.DateUtil.parse("2020-01-01"), j)));
+        //    System.out.println(s);
+        //}
+        //LocalDate parse = LocalDate.parse("2020-11-11");
+        //boolean after = parse.isBefore(LocalDate.now());
+        //System.out.println(after);
+
+        //int hHmm = Integer.parseInt(cn.hutool.core.date.DateUtil.format(cn.hutool.core.date.DateUtil.parse("2020-11-11 14:30"), "HHmm"));
+        //System.out.println(hHmm);
+
+        //int day = cn.hutool.core.date.DateUtil.dayOfWeek(cn.hutool.core.date.DateUtil.parseDate("2020-12-1"));
+        //String format = cn.hutool.core.date.DateUtil.format(new Date(), "yyyy-MM");
+        //System.out.println(format);
+        //String beforeDay = getBeforeDay();
+        //String s = String.valueOf(cn.hutool.core.date.DateUtil.dayOfMonth(new Date()));
+        //String dd = cn.hutool.core.date.DateUtil.format(cn.hutool.core.date.DateUtil.offsetDay(cn.hutool.core.date.DateUtil.date(), -1), "dd");
+        //String year = String.valueOf(cn.hutool.core.date.DateUtil.year(cn.hutool.core.date.DateUtil.offsetDay(cn.hutool.core.date.DateUtil.date(), -1)));
+        //String month = String.valueOf(cn.hutool.core.date.DateUtil.month(cn.hutool.core.date.DateUtil.offsetDay(cn.hutool.core.date.DateUtil.date(), -1))+1);
+        //String day = String.valueOf(cn.hutool.core.date.DateUtil.dayOfMonth(cn.hutool.core.date.DateUtil.offsetDay(cn.hutool.core.date.DateUtil.date(), -1)));
+        //System.out.println(day);
+        long l = dayDifference("2020-11-12");
+        System.out.println(l);
+    }
+
+    /**
+     * 获取前一天的日期
+     *
+     * @return
+     */
+    public static String getBeforeDay() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime localDateTime = LocalDateTime.now().minusDays(1);
+        return localDateTime.format(formatter);
     }
 
     /**
      * 计算当前日期与{@code endDate}的间隔天差
+     *
      * @param endDate
      * @return
      */
-    public static long until(LocalDate endDate){
+    public static long until(LocalDate endDate) {
         return LocalDate.now().until(endDate, ChronoUnit.DAYS);
     }
 
     /**
      * 计算日期{@code startDate}与{@code endDate}的间隔天
+     *
      * @param startDate
      * @param endDate
      * @return
      */
-    public static long until(LocalDate startDate, LocalDate endDate){
+    public static long until(LocalDate startDate, LocalDate endDate) {
         return ChronoUnit.DAYS.between(startDate, endDate);
     }
 
@@ -58,7 +100,8 @@ public class DateUtil {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.parse(date, formatter);
         long until = LocalDate.now().until(localDate, ChronoUnit.DAYS);
-        return Math.abs(until);
+        //return Math.abs(until);
+        return until;
     }
 
     /**

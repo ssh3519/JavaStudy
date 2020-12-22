@@ -13,7 +13,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @date 2020/11/19 16:39
  */
 public class Demo {
-    public static void main(String[] args) {
+    public static void main7(String[] args) {
         Set<String> newHashSet1 = Sets.newHashSet("a", "a", "b", "c");
         Set<String> newHashSet2 = Sets.newHashSet("b", "b", "c", "d");
 
@@ -49,7 +49,7 @@ public class Demo {
         HashSet<String> newHashSet = Sets.newHashSet("a", "a", "b", "c");
     }
 
-    public static void main5(String[] args) {
+    public static void main(String[] args) {
         List<String> arrayList = new ArrayList<>();
         arrayList.add("a");
         arrayList.add("b");
@@ -59,6 +59,16 @@ public class Demo {
         jdkList.forEach(System.out::println);// result: a b ccc
         System.out.println("-------");
         immutableList.forEach(System.out::println);// result: a b
+    }
+
+    public static void main8(String[] args) {
+        List<String> list = new ArrayList<>();
+        list.add("A");
+        list.add("B");
+        List<String> unmodifiableList = Collections.unmodifiableList(list);
+        list.add("C");
+        System.out.println(unmodifiableList.get(2));
+        //unmodifiableList.add("C");
     }
 
     /**

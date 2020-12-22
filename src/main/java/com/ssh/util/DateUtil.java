@@ -54,8 +54,17 @@ public class DateUtil {
         //String month = String.valueOf(cn.hutool.core.date.DateUtil.month(cn.hutool.core.date.DateUtil.offsetDay(cn.hutool.core.date.DateUtil.date(), -1))+1);
         //String day = String.valueOf(cn.hutool.core.date.DateUtil.dayOfMonth(cn.hutool.core.date.DateUtil.offsetDay(cn.hutool.core.date.DateUtil.date(), -1)));
         //System.out.println(day);
-        long l = dayDifference("2020-11-12");
-        System.out.println(l);
+        //long l = dayDifference("2020-11-12");
+        //System.out.println(l);
+        //Integer a = dealTimeInt("15:26");
+        //Integer b = dealTimeInt("13:26");
+        String ym = "2020-12";
+        System.out.println(ym.substring(0,4));
+        System.out.println(ym.substring(5,7));
+    }
+
+    public static Integer dealTimeInt(String timeStr) {
+        return Integer.parseInt(cn.hutool.core.date.DateUtil.format(cn.hutool.core.date.DateUtil.parse(timeStr), "HHmm"));
     }
 
     /**

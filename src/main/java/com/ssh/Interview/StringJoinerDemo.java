@@ -1,9 +1,11 @@
 package com.ssh.Interview;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.NumberUtil;
 import com.google.common.base.Preconditions;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -26,8 +28,13 @@ public class StringJoinerDemo {
         //Preconditions.checkArgument(list != null,"暂无考勤组");
         //String format = String.format("%02d", 1);
         //System.out.println(format);
-        String tempStr = "01";
-        String result = String.valueOf(Integer.parseInt(tempStr));
-        System.out.println(result);
+        //String tempStr = "01";
+        //String result = String.valueOf(Integer.parseInt(tempStr));
+        //System.out.println(result);
+
+        //int week = DateUtil.dayOfWeek(new Date());
+        //System.out.println(week);
+        String s = NumberUtil.add("1", "1.5").toString();
+        System.out.println(s);
     }
 }

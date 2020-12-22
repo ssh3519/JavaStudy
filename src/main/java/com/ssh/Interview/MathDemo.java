@@ -15,6 +15,13 @@ import java.util.StringJoiner;
 public class MathDemo {
 
     public static void main(String[] args) {
+        String s = ".5";
+        String s1 = String.valueOf(Double.parseDouble(s));
+        BigDecimal add = NumberUtil.add(s, "0");
+        System.out.println(s);
+    }
+
+    public static void main1(String[] args) {
         Double a = 3.9999;
         Integer b = 8;
         BigDecimal div = NumberUtil.div(a, b, 1, RoundingMode.DOWN);

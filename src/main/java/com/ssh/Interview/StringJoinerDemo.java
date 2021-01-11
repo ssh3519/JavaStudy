@@ -34,7 +34,15 @@ public class StringJoinerDemo {
 
         //int week = DateUtil.dayOfWeek(new Date());
         //System.out.println(week);
-        String s = NumberUtil.add("1", "1.5").toString();
-        System.out.println(s);
+        //String s = NumberUtil.add("1", "1.5").toString();
+        //System.out.println(s);
+        List<Integer> aList = new ArrayList();
+        List<String> bList = new ArrayList();
+
+        System.out.println(aList.getClass() == bList.getClass());
+        Integer integer = 66; // 自动拆箱
+
+        int i1 = integer;   // 自动装箱
+
     }
 }

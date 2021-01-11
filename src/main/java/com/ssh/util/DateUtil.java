@@ -61,6 +61,10 @@ public class DateUtil {
         String ym = "2020-12";
         System.out.println(ym.substring(0,4));
         System.out.println(ym.substring(5,7));
+
+        LocalDate of = LocalDate.of(2020, 1, 3);
+        System.out.println(of.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        System.out.println(of.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
     }
 
     public static Integer dealTimeInt(String timeStr) {

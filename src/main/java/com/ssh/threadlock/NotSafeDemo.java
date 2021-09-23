@@ -12,7 +12,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * 3.解决方案
  *      3.1 使用 Vector
  *      3.2 使用 Collections.synchronizedList()
- *      3.3 使用 CopyOnWriteArrayList（写时复制）；
+ *      3.3 使用 CopyOnWriteArrayList（写时复制）；CopyOnWriteArrayList、CopyOnWriteArraySet
  *   CopyOnWrite容器即写时复制的容器。往一个容器中添加元素的时候，不直接往当前容器Object[]添加，而是先将当前容器Object[]进行copy，复制出新的容器Object[] newElements，
  *   然后再在新的容器中添加元素，添加完之后，再将原容器的引用指向新的容器。好处：可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。
  *   所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。

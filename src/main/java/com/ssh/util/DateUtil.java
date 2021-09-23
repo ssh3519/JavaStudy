@@ -5,12 +5,17 @@ import cn.hutool.core.util.NumberUtil;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @description
@@ -19,6 +24,22 @@ import java.util.Date;
  */
 public class DateUtil {
     public static void main(String[] args) {
+        //String overtimeStartDatetime = "2020-11-11 10:00";
+        //String overtimeEndDatetime = "2020-11-11 13:00";
+        //Date date1 = string2Date2(overtimeStartDatetime);
+        //Date date2 = string2Date2(overtimeEndDatetime);
+        //boolean sameDay = cn.hutool.core.date.DateUtil.isSameDay(date1, date2);
+        //System.out.println(sameDay);
+        //String format = cn.hutool.core.date.DateUtil.format(new Date(), "yyyy-MM-dd");
+        //DateTime parse = cn.hutool.core.date.DateUtil.parse("2020-11-11 10:22:14");
+        //System.out.println(parse.toString());
+        //System.out.println(format);
+        String s = cn.hutool.core.date.DateUtil.formatTime(new Date());
+        boolean after = LocalTime.parse(s).minusHours(1).isAfter(LocalTime.parse("09:00"));
+
+        System.out.println(after);
+    }
+    public static void main1(String[] args) {
         //String date1 = "2020-11-11 08:00";
         //String date2 = "2020-11-11 13:33";
         //double d = hourDifference2(date1, date2);
@@ -65,6 +86,23 @@ public class DateUtil {
         LocalDate of = LocalDate.of(2020, 1, 3);
         System.out.println(of.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         System.out.println(of.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+    }
+
+    /**
+     * String转换成Date
+     *
+     * @param str
+     * @return
+     */
+    public static Date string2Date2(String str) {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date date = null;
+        try {
+            date = format.parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
     public static Integer dealTimeInt(String timeStr) {
@@ -155,4 +193,6 @@ public class DateUtil {
         BigDecimal round = NumberUtil.round(d, 1, RoundingMode.FLOOR);
         return round.doubleValue();
     }
+
+
 }
